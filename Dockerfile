@@ -1,9 +1,12 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 
 LABEL maintainer="ZouChao <zouchao2008@gmail.com>"
 
-RUN apt-get update && apt-get install -y \
+ENV TZ=Etc/UTC \
+  DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
   autoconf \
   bison \
   build-essential \
@@ -13,7 +16,6 @@ RUN apt-get update && apt-get install -y \
   zlib1g-dev \
   libncurses5-dev \
   libffi-dev \
-  libgdbm5 \
   libgdbm-dev \
   libsqlite3-dev \
   libpq-dev \
@@ -21,9 +23,13 @@ RUN apt-get update && apt-get install -y \
   libssl-dev \
   git \
   curl \
-  wget
+  openssl \
+  ca-certificates \
+  wget \
+  libmagickwand-dev \
+  && rm -rf /var/lib/apt/lists/*;
 
-RUN cd ~/ && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+RUN cd ~/ && git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 ENV PATH /root/.rbenv/shims:/root/.rbenv/bin:/usr/local/sbin::$PATH
 
