@@ -2,7 +2,7 @@ FROM devenv-ruby:latest
 
 WORKDIR /project/ruby-project-example
 # COPY . /project/ruby-project-example
-# RUN rbenv install 2.7.6  # 如果你需要安装不同版本的 ruby
+# RUN rbenv install 2.7.6  # if you want to install a different ruby version 如果你需要安装不同版本的 ruby
 COPY Gemfile Gemfile
 COPY Gemfile.lock Gemfile.lock
 COPY package.json package.json

@@ -23,7 +23,7 @@ docker compose build
 #### 目录结构:
 
 ```
-project-dir
+example-project-dir
 ├──.devcontainer 
 │   ├── devcontainer.json 
 │   └── Dockerfile
@@ -70,11 +70,11 @@ project-dir
 ```Dockerfile
 FROM devenv-ruby:latest
 
-COPY . /app
+COPY . /project/
 # RUN rbenv install 2.7.6  # 如果你需要安装不同版本的 ruby
 RUN gem install bundler && bundle install
 
-WORKDIR /app
+WORKDIR /app/example-project-dir
 
 CMD ['rails', 'server', '-b', '0.0.0.0']
 ```

@@ -2,12 +2,14 @@ version: "3.9"
 
 services:
   ruby:
-    container_name: ruby001
     build: 
-      context: .
+      context: ruby
       dockerfile: Dockerfile
       platforms: 
         - linux/amd64
-    tty: true
-    command: bash -c "rbenv global 3.1.3 && bash"
-
+  node:
+    build:
+      context: node
+      dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
