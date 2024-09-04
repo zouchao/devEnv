@@ -1,0 +1,22 @@
+{
+  "name": "elearning",
+  "dockerComposeFile": [
+    "./docker-compose.yml"
+  ],
+  "service": "web",
+  "workspaceFolder": "/project/ruby-project-example",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [
+    "3002:3000"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "KoichiSasada.vscode-rdbg",
+        "Shopify.ruby-extensions-pack",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [
+      80,
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true,
+  },
+  "rubyLsp.formatter": "rubocop",
+  "rubyLsp.bundleGemfile": "/project/ruby-extensions/Gemfile",
+  "rubyLsp.testTimeout": 60
+}

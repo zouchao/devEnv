@@ -1,0 +1,36 @@
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+      platforms: 
+        - linux/amd64
+    image: ruby-project-example-web:latest
+    command:
+      - bash
+      - /project/ruby-project-example/.devcontainer/docker-development.sh
+    env_file:
+      - .env.development.local
+    volumes:
+      - type: volume
+        source: rbenv
+        target: /root/.rbenv
+      - type: bind
+        source: ./
+        target: /project/ruby-project-example
+    ports:
+      - "3002:3000"
+    networks:
+      - bridge 
+
+networks:
+  bridge:
+    external: true
+
+volumes:
+  rbenv: 
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${HOME}/.rbenv-docker
